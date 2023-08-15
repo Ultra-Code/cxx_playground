@@ -1,5 +1,9 @@
+#General
+html/
+docs/
 build/
 *cache/
+
 #Cmake
 CMakeLists.txt.user
 CMakeCache.txt
