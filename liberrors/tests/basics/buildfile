@@ -1,3 +1,0 @@
-import libs = liberrors%lib{errors}
-
-exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}

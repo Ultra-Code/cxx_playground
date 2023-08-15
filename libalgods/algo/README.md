@@ -1,3 +1,0 @@
-# algo
-
-C++ library

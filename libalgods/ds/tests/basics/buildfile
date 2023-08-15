@@ -1,4 +1,0 @@
-import libs = ds%lib{ds}
-import libs += algo%libs{algo}
-
-exe{driver}: {hxx mxx cxx}{**} $libs testscript{**}

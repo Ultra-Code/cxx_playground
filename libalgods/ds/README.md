@@ -1,3 +1,0 @@
-# ds
-
-C++ library

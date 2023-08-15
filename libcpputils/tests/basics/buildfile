@@ -1,3 +1,0 @@
-import libs = libcpputils%lib{cpputils}
-
-exe{driver}: {hxx mxx txx cxx}{**} $libs testscript{**}
