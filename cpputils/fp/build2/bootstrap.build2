@@ -1,0 +1,7 @@
+project = fp
+
+using version
+using config
+using test
+using install
+using dist

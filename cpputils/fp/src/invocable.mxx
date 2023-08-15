@@ -1,0 +1,33 @@
+module;
+#include <string>
+export module invocable;
+export import<vector>;
+export import<string>;
+import<concepts>;
+
+enum class Gender
+{
+  Male,
+  Female
+};
+export struct persons_t
+{
+  std::string name;
+  uint32_t age;
+  Gender gender = Gender::Male;
+};
+
+export auto
+name_for(std::vector<persons_t> const &persons,
+         std::predicate<persons_t> auto &&filter) -> std::vector<std::string>
+{
+  auto result = std::vector<std::string>();
+  for (auto const &human : persons)
+    {
+      if (filter(human))
+        {
+          result.emplace_back(human.name);
+        }
+    }
+  return result;
+}

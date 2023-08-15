@@ -1,0 +1,30 @@
+// module;
+//#include <chrono>
+//#include <cstdint>
+//#include <string>
+//#include <string_view>
+export module libec.block;
+import<cstdint>;
+import<string>;
+import<string_view>;
+import<chrono>;
+
+export
+{
+    class blocks
+    {
+        std::string previous_hash_ {};
+        uint32_t index_ {};
+        int64_t nonce_ {};
+        std::string data_ {};
+        std::string hash_ {};
+        std::chrono::local_t time_ {};
+
+      public:
+        blocks(uint32_t block_idx, std::string_view data);
+        [[nodiscard]] auto get_hash(uint32_t block_idx) const
+            -> std::string_view;
+        auto mine_block(uint32_t dificulty_level) const -> void;
+        auto calculate_hash(uint32_t index) -> std::string_view const;
+    };
+}

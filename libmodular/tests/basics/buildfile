@@ -1,0 +1,3 @@
+import libs = libmodular%lib{modular}
+hxx{boost.ut}@./: cxx.features.modules=false
+exe{driver}: {mxx hxx ixx txx cxx}{**} $libs testscript{**}

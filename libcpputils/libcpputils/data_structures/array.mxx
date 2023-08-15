@@ -1,0 +1,32 @@
+module;
+//#include <cstddef> // for size_t defination
+export module data_structures.array;
+import<cstddef>;
+
+namespace mal {
+  template<typename T>
+  class Array {
+  private:
+    T *m_elements{};
+    size_t m_size{};
+
+  public:
+    // static_assert(std::is_default_constructible_v<T>,
+    //             "A default constructor is required");
+    explicit Array(std::size_t arraySize = 0);
+    Array(const Array &array);
+    Array(Array &&array) noexcept;
+    auto operator[](size_t index) -> T &;
+    auto operator[](size_t index) const -> const T &;
+    auto operator=(const Array &rhsCopy) -> Array &;
+    auto operator=(Array &&rhsMove) noexcept -> Array &;
+    [[nodiscard]] auto
+    getSize() const -> size_t {
+      return m_size;
+    }
+    auto swap(Array &rhs) noexcept -> void;
+    ~Array();
+  };
+  template<typename T>
+  auto swap(Array<T> &lhs, Array<T> &rhs) noexcept -> void;
+} // namespace mal

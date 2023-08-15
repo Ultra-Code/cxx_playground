@@ -1,0 +1,14 @@
+: 1
+name: opengl
+version: 0.1.0-a.0.z
+summary: opengl C++ executable
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/opengl
+email: mega.alpha100@gmail.com
+#build-error-email: mega.alpha100@gmail.com
+depends: * build2 >= 0.13.0
+depends: * bpkg >= 0.13.0
+#depends: libhello ^1.0.0
+depends: libepoxy-dev >= 1.5.5
+depends: libglfw3-dev >= 3.3.2

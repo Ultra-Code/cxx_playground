@@ -1,0 +1,137 @@
+/**
+ * @file modular.hxx
+ */
+module;
+//#include <concepts>
+//#include <libmodular/export.hxx>
+//#include <optional>
+//#include <stdexcept>
+//#include <vector>
+export module modular;
+import<liberrors/assertion.hxx>;
+export import<optional>;
+import<vector>;
+import<stdexcept>;
+import<concepts>;
+/**
+ * @namespace modular
+ * @brief namespace modular
+ */
+export namespace modular
+{
+  /**
+   * @brief function to return value of the index with the maximum value
+   * in the container @param span
+   *
+   * @param [in] receive range of ints
+   * @returns an int which refers to the maximum element in the range
+   */
+
+  inline constexpr auto index_maximum
+      = []<std::integral integral_t>(
+            std::vector<integral_t> const &spans) -> integral_t {
+    // assert(not spans.empty());
+    assert_that(not spans.empty(), "array must not be empty");
+
+    // if (auto constexpr location = std::source_location::current();
+    // spans.empty())
+    //{
+    // throw std::invalid_argument(
+    // fmt::format("At {} {}:{} in {} \n info: cant find maximum of an "
+    //"empty vector\n",
+    // location.file_name(), location.line(),
+    // location.column(), location.function_name()));
+    //}
+    auto max_index{ 0uz };
+    for (auto index{ 1uz }; index < spans.size(); ++index)
+      {
+        if (spans.at(max_index) < spans.at(index))
+          {
+            max_index = index;
+          }
+      }
+    return spans.at(max_index);
+  };
+  /**
+   * @brief bubble sort algorithms
+   *
+   * @param array to sort
+   * @returns std::vector<std::integral auto> of bubble sorted array
+   */
+  inline constexpr auto bubble_sort =
+      [](std::vector<std::integral auto> && array)
+      -> std::vector<std::integral auto>
+  {
+    for (auto swap_counter{ 1uz }; swap_counter > 0;)
+      {
+        swap_counter = 0;
+        for (auto index{ 0uz }; index < (std::size(array) - 1); ++index)
+          {
+            if (array.at(index) > array.at(index + 1))
+              {
+                ++swap_counter;
+                std::swap(array.at(index), array.at(index + 1));
+              }
+          }
+      }
+    return array;
+  };
+
+  /**
+   * @brief insert into a sorted array
+   *
+   * @param sorted_array sorted array for insertion
+   * @param insert_value value to insert into array
+   * @returns std::vector<std::integral auto> with the inserted element
+   */
+  inline constexpr auto sorted_insert =
+      [](std::vector<std::integral auto> && sorted_array,
+         std::integral auto insert_value) -> std::vector<std::integral auto>
+  {
+    for (auto end{ sorted_array.end() - 1 }; end != sorted_array.cbegin();)
+      {
+
+        if (insert_value > *end)
+          {
+            sorted_array.emplace(end + 1, insert_value);
+            break;
+          }
+        else
+          {
+            --end;
+          }
+      }
+    // for (auto index{ std::size(sorted_array) - 1 }; index >= 0; --index)
+    //{
+    // if (insert_value > sorted_array.at(index))
+    //{
+    // const auto insert_index = index + 1;
+    // sorted_array.emplace(sorted_array.begin() + insert_index,
+    // insert_value);
+    // break;
+    //}
+    //}
+    return sorted_array;
+  };
+
+  inline constexpr auto sequential_search
+      = []<std::integral integral>(std::vector<integral> const &array,
+                                   integral item) -> std::optional<integral> {
+    for (auto const &element : array)
+      {
+        if (element == item)
+          {
+            return std::optional<integral>{ element };
+          }
+      }
+    return std::nullopt;
+    /*
+     *  namespace rng = std::ranges;
+     *  auto search_result = rng::find_if(
+     *      array, [&item](integral element) { return element == item; });
+     *  return search_result != array.end()
+     *             ? std::optional<integral>{ *search_result }
+     *             : std::nullopt;
+     */
+  };
+} // namespace modular

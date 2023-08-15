@@ -1,0 +1,102 @@
+module;
+#include <utility>
+export module high_order_function;
+export import<string>;
+import<utility>;
+import<functional>;
+
+auto constexpr sfOffice
+    = [](std::pair<std::string, std::string> &&names) noexcept {
+        const auto &&[FirstName, LastName] = std::move(names);
+        auto nameText = FirstName + " " + LastName;
+        if (LastName > "L")
+          {
+            return nameText + " - PO Box 1234 - San Francisco, CA, 94111";
+          }
+        return nameText + " - PO Box 1010 - San Francisco, CA, 94109";
+      };
+
+auto constexpr nyOffice
+    = [](std::pair<std::string, std::string> &&names) noexcept {
+        const auto &&[FirstName, LastName] = std::move(names);
+        auto nameText = FirstName + " " + LastName;
+
+        return nameText + ": PO Box 789 - New York, NY, 10013";
+      };
+
+auto constexpr renoOffice
+    = [](std::pair<std::string, std::string> &&names) noexcept {
+        auto nameText = std::get<1>(names);
+
+        return nameText + " - PO Box 456 - Reno, NV 89523";
+      };
+
+export enum class locations { ny, sf, reno };
+
+auto constexpr getLocation = [](locations location) noexcept
+    -> std::function<std::string(std::pair<std::string, std::string>)> {
+  switch (location)
+    {
+    case locations::ny:
+      {
+        return nyOffice;
+      }
+    case locations::sf:
+      {
+        return sfOffice;
+      }
+    case locations::reno:
+      {
+        return renoOffice;
+      }
+    }
+};
+
+export auto
+addressLetter(locations location,
+              std::pair<std::string, std::string> &&names) noexcept
+{
+  auto LocationFunction = getLocation(location);
+  return LocationFunction(names);
+}
+
+auto
+func(int x, int y, int z) noexcept
+{
+  return x + y + z;
+}
+
+auto func_lam = [](int x) noexcept {
+  return [x](int y) {
+    return [x, y](int z) {
+      return [x, y, z](int a, int b) { return a + b + x + y + z; };
+    };
+  };
+};
+
+export auto
+ackermann(uint32_t m, uint32_t n) noexcept -> decltype(auto)
+{
+  if (m == 0)
+    {
+      return n + 1;
+    }
+  if (n == 0)
+    {
+      return ackermann(m - 1, 1);
+    }
+  return ackermann((m - 1), (ackermann(m, n - 1)));
+}
+
+constexpr inline auto recursive_lambdas = [](int n) noexcept {
+  constexpr auto fib = [](int n, auto &&fib) {
+    if (n <= 1)
+      {
+        return n;
+      }
+    return fib(n - 1, fib) + fib(n - 2, fib);
+  };
+  return [fib, n]() { return fib(n, fib); }();
+};
+
+export constexpr inline auto fib = recursive_lambdas;

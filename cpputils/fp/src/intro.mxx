@@ -1,0 +1,66 @@
+module;
+//#include <algorithm>
+//#include <fstream>
+//#include <string_view>
+#include <fstream>
+// #include <vector>
+#include <ranges>
+export module intro;
+import<algorithm>;
+// import<ranges>;
+import<vector>;
+import<string_view>;
+
+export
+{
+  inline auto count_number_of_lines_in_file_imp(
+      std::vector<std::string_view> const &files)
+      ->std::vector<int>
+  {
+    auto number_of_lines_in_files = std::vector<int>();
+    auto newline_char = char();
+
+    for (auto const &file : files)
+      {
+        auto line_count = int();
+        auto in_file = std::ifstream(file.cbegin());
+
+        while (in_file.get(newline_char))
+          {
+            if (newline_char == '\n')
+              {
+                line_count++;
+              }
+          }
+        number_of_lines_in_files.emplace_back(line_count);
+      }
+    return number_of_lines_in_files;
+  }
+
+  inline auto count_line(std::string const &file)->int64_t
+  {
+    auto in_file = std::ifstream(file);
+    return std::ranges::count(std::istreambuf_iterator<char>(in_file),
+                              std::istreambuf_iterator<char>(), '\n');
+  }
+
+  inline auto count_number_of_lines_in_file_fp(
+      std::vector<std::string> const &files)
+      ->std::vector<int>
+  {
+    auto number_of_lines_in_files = std::vector<int>();
+    std::ranges::transform(files, number_of_lines_in_files.begin(),
+                           count_line);
+    return number_of_lines_in_files;
+  }
+
+  inline auto count_number_of_lines_in_file_full_fp(
+      std::vector<std::string> const &files)
+      ->std::vector<int>
+  {
+    auto number_of_lines_in_files = std::vector<int>(files.size());
+    std::ranges::transform(files, std::back_inserter(number_of_lines_in_files),
+                           count_line);
+    return number_of_lines_in_files;
+  }
+}

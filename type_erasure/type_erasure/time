@@ -1,0 +1,190 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.005  000.005: --- NVIM STARTING ---
+000.270  000.265: locale set
+000.528  000.258: inits 1
+000.542  000.014: window checked
+000.575  000.034: parsing arguments
+000.656  000.081: expanding arguments
+000.690  000.034: inits 2
+001.101  000.411: init highlight
+001.102  000.001: waiting for UI
+001.911  000.809: done waiting for UI
+001.936  000.025: initialized screen early for UI
+009.843  000.287  000.287: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+010.515  000.010  000.010: sourcing /opt/nvim-linux64/share/nvim/runtime/filetype.vim
+010.642  000.011  000.011: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/filetype.vim
+011.348  000.577  000.577: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+011.538  000.012  000.012: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/ftdetect/polyglot.vim
+022.569  012.376  011.766: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/autoload/polyglot/init.vim
+022.607  012.559  000.183: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/ftdetect/polyglot.vim
+022.921  019.477  006.632: sourcing /opt/nvim-linux64/share/nvim/runtime/filetype.vim
+023.226  000.023  000.023: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/filetype.vim
+023.555  000.061  000.061: sourcing /opt/nvim-linux64/share/nvim/runtime/ftplugin.vim
+023.989  000.040  000.040: sourcing /opt/nvim-linux64/share/nvim/runtime/indent.vim
+024.634  000.252  000.252: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+024.922  000.591  000.339: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/synload.vim
+025.000  000.726  000.135: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syntax.vim
+025.298  000.211  000.211: sourcing /opt/nvim-linux64/share/nvim/runtime/autoload/provider/clipboard.vim
+025.846  000.083  000.083: sourcing /home/ultracode/.etc/nvim/lua/mapping/fzf_map.vim
+025.885  000.017  000.017: sourcing /home/ultracode/.etc/nvim/lua/mapping/nerdtree_map.vim
+025.916  000.013  000.013: sourcing /home/ultracode/.etc/nvim/lua/mapping/copy_paste_map.vim
+025.947  000.012  000.012: sourcing /home/ultracode/.etc/nvim/lua/mapping/visual_fnd_replace_map.vim
+026.014  000.049  000.049: sourcing /home/ultracode/.etc/nvim/lua/mapping/spellcheck_map.vim
+026.152  000.120  000.120: sourcing /home/ultracode/.etc/nvim/lua/mapping/tab_buffer_map.vim
+026.189  000.015  000.015: sourcing /home/ultracode/.etc/nvim/lua/mapping/syntastic_map.vim
+026.221  000.012  000.012: sourcing /home/ultracode/.etc/nvim/lua/mapping/markdown_preview_map.vim
+026.252  000.011  000.011: sourcing /home/ultracode/.etc/nvim/lua/mapping/highlighting_map.vim
+026.280  000.009  000.009: sourcing /home/ultracode/.etc/nvim/lua/mapping/folding_map.vim
+026.328  000.016  000.016: sourcing /home/ultracode/.etc/nvim/lua/mapping/terminal_map.vim
+026.386  000.031  000.031: sourcing /home/ultracode/.etc/nvim/lua/mapping/telescope.vim
+026.478  000.073  000.073: sourcing /home/ultracode/.etc/nvim/lua/mapping/vsnip.vim
+033.571  000.037  000.037: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/opt/paq-nvim/plugin/paq-nvim.vim
+034.188  000.058  000.058: sourcing /home/ultracode/.etc/nvim/lua/plugrc/markdown_preview.vim
+034.256  000.048  000.048: sourcing /home/ultracode/.etc/nvim/lua/plugrc/syntastic.vim
+034.588  000.315  000.315: sourcing /home/ultracode/.etc/nvim/lua/plugrc/neoformat.vim
+034.920  000.313  000.313: sourcing /home/ultracode/.etc/nvim/lua/plugrc/nerdtree_git.vim
+034.987  000.045  000.045: sourcing /home/ultracode/.etc/nvim/lua/plugrc/airline.vim
+035.044  000.038  000.038: sourcing /home/ultracode/.etc/nvim/lua/plugrc/fzf.vim
+035.087  000.024  000.024: sourcing /home/ultracode/.etc/nvim/lua/plugrc/vista.vim
+053.246  000.168  000.168: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+054.393  000.172  000.172: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+055.172  000.151  000.151: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+055.633  000.071  000.071: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/onedark.vim/autoload/onedark.vim
+073.228  019.378  018.984: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/onedark.vim/colors/onedark.vim
+077.788  001.130  001.130: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+077.857  000.040  000.040: sourcing /home/ultracode/.etc/nvim/ftplugin/cpp.vim
+077.868  033.339: sourcing vimrc file(s)
+078.670  000.013  000.013: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/opt/paq-nvim/plugin/paq-nvim.vim
+079.185  000.450  000.450: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/plugin/polyglot.vim
+079.615  000.224  000.224: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/gzip.vim
+079.644  000.011  000.011: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/health.vim
+079.748  000.089  000.089: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/man.vim
+080.310  000.222  000.222: sourcing /opt/nvim-linux64/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+080.354  000.590  000.369: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/matchit.vim
+080.521  000.152  000.152: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/matchparen.vim
+080.993  000.457  000.457: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/netrwPlugin.vim
+081.174  000.139  000.139: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/rplugin.vim
+081.331  000.125  000.125: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/shada.vim
+081.380  000.024  000.024: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/spellfile.vim
+081.564  000.163  000.163: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/tarPlugin.vim
+081.676  000.087  000.087: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/tohtml.vim
+081.714  000.017  000.017: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/tutor.vim
+081.932  000.200  000.200: sourcing /opt/nvim-linux64/share/nvim/runtime/plugin/zipPlugin.vim
+081.952  001.343: loading plugins
+082.454  000.039  000.039: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/neomake/autoload/neomake/setup.vim
+082.546  000.327  000.288: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/neomake/plugin/neomake.vim
+082.650  000.020  000.020: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-bufferline.lua/plugin/bufferline.vim
+082.845  000.124  000.124: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-compe/plugin/compe.vim
+083.000  000.078  000.078: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-lspconfig/plugin/lspconfig.vim
+083.178  000.102  000.102: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-tree.lua/plugin/tree.vim
+083.287  000.030  000.030: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+083.421  000.037  000.037: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/plenary.nvim/plugin/plenary.vim
+083.986  000.471  000.471: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/telescope.nvim/plugin/telescope.vim
+084.183  000.120  000.120: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/plugin/polyglot.vim
+084.240  000.012  000.012: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/ftdetect/polyglot.vim
+084.722  000.417  000.417: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-vsnip/plugin/vsnip.vim
+084.828  001.136: loading packages
+088.084  003.188  003.188: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/nvim-compe/after/plugin/compe.vim
+088.180  000.165: loading after plugins
+088.196  000.016: inits 3
+090.952  002.756: reading ShaDa
+243.433  000.100  000.100: sourcing /opt/nvim-linux64/share/nvim/runtime/ftplugin/c.vim
+263.721  019.298  019.298: sourcing /opt/nvim-linux64/share/nvim/runtime/indent/c.vim
+266.117  001.819  001.819: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/syntax/c.vim
+266.224  000.017  000.017: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/c.vim
+266.465  000.169  000.169: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/after/syntax/c.vim
+266.664  000.035  000.035: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/syntax/c.vim
+440.524  171.294  171.294: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/autoload/polyglot/ft.vim
+440.833  157.150: opening buffers
+457.164  016.331: BufEnter autocommands
+457.172  000.009: editing files in windows
+457.230  000.057: VimEnter autocommands
+457.232  000.002: UIEnter autocommands
+457.235  000.003: before starting main loop
+457.864  000.082  000.082: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/neomake/autoload/neomake/core.vim
+458.773  001.375  001.294: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/neomake/autoload/neomake.vim
+462.233  003.623: first screen update
+462.237  000.003: --- NVIM STARTED ---
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.013  000.013: --- NVIM STARTING ---
+002.334  002.320: locale set
+003.502  001.168: inits 1
+003.561  000.059: window checked
+003.719  000.158: parsing arguments
+004.077  000.358: expanding arguments
+004.240  000.163: inits 2
+005.984  001.744: init highlight
+005.993  000.009: waiting for UI
+009.042  003.049: done waiting for UI
+009.148  000.106: initialized screen early for UI
+044.194  001.258  001.258: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+046.761  000.034  000.034: sourcing /opt/nvim-linux64/share/nvim/runtime/filetype.vim
+047.224  000.041  000.041: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/filetype.vim
+049.896  002.228  002.228: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+050.611  000.042  000.042: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/ftdetect/polyglot.vim
+084.102  038.518  036.173: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/autoload/polyglot/init.vim
+084.164  039.138  000.619: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/ftdetect/polyglot.vim
+085.143  069.664  029.268: sourcing /opt/nvim-linux64/share/nvim/runtime/filetype.vim
+085.943  000.055  000.055: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/filetype.vim
+087.001  000.166  000.166: sourcing /opt/nvim-linux64/share/nvim/runtime/ftplugin.vim
+088.370  000.128  000.128: sourcing /opt/nvim-linux64/share/nvim/runtime/indent.vim
+090.308  000.893  000.893: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+091.167  001.942  001.049: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/synload.vim
+091.389  002.361  000.419: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syntax.vim
+092.180  000.628  000.628: sourcing /opt/nvim-linux64/share/nvim/runtime/autoload/provider/clipboard.vim
+093.713  000.228  000.228: sourcing /home/ultracode/.etc/nvim/lua/mapping/fzf_map.vim
+093.829  000.051  000.051: sourcing /home/ultracode/.etc/nvim/lua/mapping/nerdtree_map.vim
+093.926  000.042  000.042: sourcing /home/ultracode/.etc/nvim/lua/mapping/copy_paste_map.vim
+094.022  000.037  000.037: sourcing /home/ultracode/.etc/nvim/lua/mapping/visual_fnd_replace_map.vim
+094.226  000.148  000.148: sourcing /home/ultracode/.etc/nvim/lua/mapping/spellcheck_map.vim
+094.648  000.366  000.366: sourcing /home/ultracode/.etc/nvim/lua/mapping/tab_buffer_map.vim
+094.757  000.044  000.044: sourcing /home/ultracode/.etc/nvim/lua/mapping/syntastic_map.vim
+094.850  000.035  000.035: sourcing /home/ultracode/.etc/nvim/lua/mapping/markdown_preview_map.vim
+094.941  000.030  000.030: sourcing /home/ultracode/.etc/nvim/lua/mapping/highlighting_map.vim
+095.022  000.026  000.026: sourcing /home/ultracode/.etc/nvim/lua/mapping/folding_map.vim
+095.123  000.044  000.044: sourcing /home/ultracode/.etc/nvim/lua/mapping/terminal_map.vim
+095.276  000.096  000.096: sourcing /home/ultracode/.etc/nvim/lua/mapping/telescope.vim
+095.546  000.214  000.214: sourcing /home/ultracode/.etc/nvim/lua/mapping/vsnip.vim
+118.732  000.121  000.121: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/opt/paq-nvim/plugin/paq-nvim.vim
+120.677  000.183  000.183: sourcing /home/ultracode/.etc/nvim/lua/plugrc/markdown_preview.vim
+120.896  000.154  000.154: sourcing /home/ultracode/.etc/nvim/lua/plugrc/syntastic.vim
+121.661  000.709  000.709: sourcing /home/ultracode/.etc/nvim/lua/plugrc/neoformat.vim
+122.758  001.018  001.018: sourcing /home/ultracode/.etc/nvim/lua/plugrc/nerdtree_git.vim
+122.988  000.149  000.149: sourcing /home/ultracode/.etc/nvim/lua/plugrc/airline.vim
+123.176  000.123  000.123: sourcing /home/ultracode/.etc/nvim/lua/plugrc/fzf.vim
+123.321  000.078  000.078: sourcing /home/ultracode/.etc/nvim/lua/plugrc/vista.vim
+181.295  000.516  000.516: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+185.112  000.562  000.562: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+187.761  000.490  000.490: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/syncolor.vim
+189.274  000.224  000.224: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/onedark.vim/autoload/onedark.vim
+250.766  067.444  066.169: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/onedark.vim/colors/onedark.vim
+264.357  003.498  003.498: sourcing /home/ultracode/.etc/nvim/ftdetect/ftdetect.vim
+264.548  000.109  000.109: sourcing /home/ultracode/.etc/nvim/ftplugin/cpp.vim
+264.580  106.965: sourcing vimrc file(s)
+264.641  000.061: inits 3
+275.520  010.879: reading ShaDa
+325.285  000.273  000.273: sourcing /opt/nvim-linux64/share/nvim/runtime/ftplugin/c.vim
+328.176  000.061  000.061: sourcing /opt/nvim-linux64/share/nvim/runtime/indent/c.vim
+335.082  005.939  005.939: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/syntax/c.vim
+335.251  000.043  000.043: sourcing /opt/nvim-linux64/share/nvim/runtime/syntax/c.vim
+335.894  000.531  000.531: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/after/syntax/c.vim
+336.525  000.113  000.113: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/syntax/c.vim
+344.175  001.255  001.255: sourcing /home/ultracode/.local/share/nvim/site/pack/paqs/start/vim-polyglot/autoload/polyglot/ft.vim
+345.011  061.276: opening buffers
+345.104  000.093: BufEnter autocommands
+345.120  000.016: editing files in windows
+345.219  000.100: VimEnter autocommands
+345.228  000.009: UIEnter autocommands
+345.236  000.008: before starting main loop
+378.760  033.524: first screen update
+378.779  000.019: --- NVIM STARTED ---

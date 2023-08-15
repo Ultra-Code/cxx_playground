@@ -1,0 +1,37 @@
+export module fp;
+export import invocable;
+export import composable_funcs;
+export import partial_function;
+export import high_order_function;
+export import intro;
+/* import<iostream>;
+#include <src/fp.hxx> */
+
+
+auto
+fp_main() -> void
+{
+  /* const auto a = persons_t{ "", 20, persons_t::Gender::Male };
+  const auto list_of_people
+      = std::vector<persons_t>{ { "Assan", 20, persons_t::Gender::Male },
+                                { "Kojo", 30, persons_t::Gender::Male } };
+  constexpr auto filer_by_name = [](persons_t const &person) noexcept -> bool {
+    return person.gender == persons_t::Gender::Male;
+  };
+  std::cout << "ifEvenInc 1 " << ifEvenInc(1) << " ifEvenDouble "
+            << ifEvenDouble(4) << '\n';
+  // std::ranges::for_each(name_for(list_of_people, filer_by_name),
+  //[](auto &&name) { std::cout << name << '\n'; });
+  use_partial_func(); */
+
+    /* std::cout<<"fib is %d"<<fib(6)<<'\n';
+    std::cout<<"address is %s"<<addressLetter(locations::ny,{"Assan","Bernard"})<<'\n'; */
+  // use_curry();
+  // use_collection_lift();
+  // auto tuples = std::make_tuple("Assan", "Bernard");
+  // std::cout << addressLetter(locations::ny, tuples) << '\n';
+
+  //// uint32_t m, n;
+  //// std::cin >> m >> n;
+  //// std::cout << ackermann(m, n) << '\n';
+}

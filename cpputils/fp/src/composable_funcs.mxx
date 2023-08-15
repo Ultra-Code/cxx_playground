@@ -1,0 +1,28 @@
+module;
+#include <cstdint>
+export module composable_funcs;
+
+export {
+  inline auto constexpr isEven = [](uint32_t number) constexpr->bool {
+    return number % 2 == 0;
+  };
+
+  inline auto constexpr ifEven = [](auto &&function) {
+    return [function](uint32_t number) {
+      if (isEven(number)) {
+        return function(number);
+      }
+
+      return number;
+    };
+  };
+
+  inline auto constexpr increment = [](uint32_t number) { return number + 1; };
+
+  inline auto constexpr doubleval = [](uint32_t number) {
+    return number + number;
+  };
+
+  inline auto constexpr ifEvenInc    = ifEven(increment);
+  inline auto constexpr ifEvenDouble = ifEven(doubleval);
+}

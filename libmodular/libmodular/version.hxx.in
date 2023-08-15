@@ -1,0 +1,34 @@
+#pragma once
+
+// The numeric version format is AAAAABBBBBCCCCCDDDE where:
+//
+// AAAAA - major version number
+// BBBBB - minor version number
+// CCCCC - bugfix version number
+// DDD   - alpha / beta (DDD + 500) version number
+// E     - final (0) / snapshot (1)
+//
+// When DDDE is not 0, 1 is subtracted from AAAAABBBBBCCCCC. For example:
+//
+// Version      AAAAABBBBBCCCCCDDDE
+//
+// 0.1.0        0000000001000000000
+// 0.1.2        0000000001000020000
+// 1.2.3        0000100002000030000
+// 2.2.0-a.1    0000200001999990010
+// 3.0.0-b.2    0000299999999995020
+// 2.2.0-a.1.z  0000200001999990011
+//
+#define LIBMODULAR_VERSION       $libmodular.version.project_number$ULL
+#define LIBMODULAR_VERSION_STR   "$libmodular.version.project$"
+#define LIBMODULAR_VERSION_ID    "$libmodular.version.project_id$"
+#define LIBMODULAR_VERSION_FULL  "$libmodular.version$"
+
+#define LIBMODULAR_VERSION_MAJOR $libmodular.version.major$
+#define LIBMODULAR_VERSION_MINOR $libmodular.version.minor$
+#define LIBMODULAR_VERSION_PATCH $libmodular.version.patch$
+
+#define LIBMODULAR_PRE_RELEASE   $libmodular.version.pre_release$
+
+#define LIBMODULAR_SNAPSHOT_SN   $libmodular.version.snapshot_sn$ULL
+#define LIBMODULAR_SNAPSHOT_ID   "$libmodular.version.snapshot_id$"

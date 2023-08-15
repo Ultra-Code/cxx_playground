@@ -1,0 +1,3 @@
+import libs = algo%lib{algo}
+
+exe{driver}: {hxx mxx cxx}{**} $libs testscript{**}

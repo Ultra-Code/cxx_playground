@@ -1,0 +1,15 @@
+: 1
+summary: libalgods project repository
+
+#:
+#role: prerequisite
+#location: https://pkg.cppget.org/1/stable
+#trust: ...
+
+#:
+#role: prerequisite
+#location: https://git.build2.org/hello/libhello.git
+
+:
+role: prerequisite
+location: https://github.com/Ultra-Code/liberrors.git#master

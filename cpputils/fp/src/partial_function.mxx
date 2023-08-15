@@ -1,0 +1,135 @@
+module;
+//#include <algorithm>
+//#include <array>
+//#include <functional>
+//#include <iostream>
+//#include <mutex>
+export module partial_function;
+import<algorithm>;
+import<mutex>;
+import<iostream>;
+import<array>;
+import<functional>;
+
+export
+{
+  template<typename Function, typename SecondArg> class partial_func
+  {
+    Function m_func;
+    SecondArg m_sec_arg;
+
+  public:
+    partial_func(Function func, SecondArg arg2)
+        : m_func{ func }
+        , m_sec_arg{ arg2 }
+    {
+    }
+
+    auto
+    operator()(auto &&first_arg) const -> decltype(auto)
+    {
+      return m_func(std::forward<decltype(first_arg)>(first_arg), m_sec_arg);
+    }
+  };
+
+  inline auto use_partial_func()->auto
+  {
+    auto bind_partial_func
+        = std::bind(std::greater<>(), std::placeholders::_1, 1);
+    auto bind_partial_func_lambda = [predifined_value = 1](auto placeholder) {
+      return std::greater()(placeholder, predifined_value);
+    };
+    /*
+     *    auto ints = std::array {1, 2, 4, 0, 3};
+     *    auto count =
+     *        std::ranges::count_if(ints,
+     *                              [>partial_func(std::greater<>(), 1)<]
+     *                              [>bind_partial_func<]
+     * bind_partial_func_lambda);
+     *
+     *    std::cout << count << '\n';
+     */
+  }
+
+  [[gnu::const]] inline auto curry_func(double first)->auto
+  {
+    return [first](double second) -> auto
+    {
+      return [second, first](double third) {
+        return (third > second) and (second > first);
+      };
+    };
+  }
+
+  [[gnu::const]] inline auto curry_func_ref(uint8_t first)->auto
+  {
+    return [=](uint8_t second) -> auto
+    {
+      return
+          [=](uint8_t third) { return (third > second) and (second > first); };
+    };
+  }
+
+ inline auto use_curry()->auto
+  {
+    std::cout << std::boolalpha << "curry_func is " << curry_func(1)(1)(1)
+              << '\n';
+    std::cout << std::boolalpha << "curry_func_ref is "
+              << curry_func_ref(1)(2)(3) << '\n';
+  }
+
+  template<typename functions>
+  concept Function = requires
+  {
+    std::invocable<functions>;
+  };
+
+ auto collection_lift(Function auto func)->auto
+  {
+    return [func](auto... items) {
+      return func(std::forward<decltype(items)>(items)...);
+    };
+  }
+  inline auto use_collection_lift()->auto
+  {
+    auto call = collection_lift(
+        [](auto... vals) { (std::cout << ... << vals) << '\n'; });
+    call(1, 2, 3, 4);
+  }
+
+ template<Function func> class lazy_eval
+  {
+    mutable func computation_;
+    mutable func cache_;
+    // mutable bool cache_initialized_ {false};
+    // mutable std::mutex cache_mutex_;
+    mutable std::once_flag call_once_flag_;
+
+  public:
+    explicit lazy_eval(func function)
+        : computation_{ function }
+    {
+    }
+
+    auto
+    operator()() const -> const func &
+    {
+      // auto const lock = std::unique_lock<std::mutex>(cache_mutex_);
+
+      // if (not cache_initialized_)
+      //{
+      // cache_ = computation_();
+      // cache_initialized_ = true;
+      //}
+
+      // return cache_;
+
+      std::call_once(call_once_flag_, [this] { cache_ = computation_; });
+      return cache_;
+    }
+  };
+ constexpr inline auto const funcs = [] {
+    auto const lazy = lazy_eval([] {});
+    lazy();
+  };
+}

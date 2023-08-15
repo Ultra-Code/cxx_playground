@@ -1,0 +1,7 @@
+project = eh
+
+using version
+using config
+using test
+using install
+using dist

@@ -1,0 +1,84 @@
+module;
+#include <ut.hpp>
+#include <optional>
+//#include <vector>
+export module modular.test;
+// import<vector>;
+// import<optional>;
+import modular;
+
+using namespace modular;
+using namespace boost::ut;
+using namespace boost::ut::bdd;
+suite modular_test = [] {
+  "maximum test"_test = [] {
+    given("Given the maximum function auto "
+          "maximum(std::vector<int>)->size_t")
+        = [] {
+            auto vector_ints = std::vector<int>{};
+
+            when("when the vector is empty") = [&vector_ints] {
+              then("then abort when vector is empty\n") = [&vector_ints] {
+                expect(that % throws([&vector_ints] {
+                         index_maximum(vector_ints);
+                       }));
+              };
+            };
+            when("when vector is resize with {1,2,3}") = [&vector_ints] {
+              vector_ints.assign({ 1, 2, 3 });
+              then("then maximum element must be at index 2")
+                  = [&vector_ints] {
+                      expect(that % index_maximum(vector_ints) == 3);
+                    };
+            };
+          };
+  };
+
+  "bubble test"_test = [] {
+    given("Given an unsorted array of {3,2,1}") = [] {
+      auto unsorted_array = std::vector<int>{ 3, 2, 1 };
+
+      when("when auto bubble(std::vector<std::ingeral auto> "
+           "array)->std::vector<std::integral auto> is called")
+          = [&unsorted_array] {
+              auto sorted_array = bubble_sort(std::move(unsorted_array));
+
+              then("then bubble must now be {1,2,3}") = [&sorted_array] {
+                expect(that % sorted_array == std::vector<int>{ 1, 2, 3 });
+              };
+            };
+    };
+  };
+
+  "insertion in sorted array test"_test = [] {
+    given("Given the array {1,2,4}") = [] {
+      auto sorted_array = std::vector{ 1, 2, 4 };
+      when("When 3 is inserted into the array {1,2,4}") = [&sorted_array] {
+        auto sorted_with_insert = sorted_insert(std::move(sorted_array), 3);
+        then("Then the array must now be equal to {1,2,3,4}")
+            = [&sorted_with_insert] {
+                expect(that % sorted_with_insert == std::vector{ 1, 2, 3, 4 });
+              };
+      };
+    };
+  };
+
+  "sequential search for a value in an array"_test = [] {
+    given("Given the array {1,2,3,4}") = [] {
+      auto array = std::vector{ 1, 2, 3, 4 };
+      when("When i search for 4 ") = [&array] {
+        auto four = sequential_search(array, 4);
+        then("Then i should find 4 at index 3")
+            = [&four] { expect(that % four.value() == 4); };
+      };
+      when("When we search for an element not in the array .ie 7") = [&array] {
+        auto not_found = sequential_search(array, 7);
+        then("Then the element should not be found .ie nullopt")
+            = [&not_found] {
+                expect(that % (not_found == std::nullopt))
+                    << " not_found != nullopt";
+              };
+      };
+    };
+  };
+};

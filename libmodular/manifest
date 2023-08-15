@@ -1,0 +1,14 @@
+: 1
+name: libmodular
+version: 0.1.2-a.0.z
+summary: modular C++ library
+license: other: proprietary ; Not free/open source.
+description-file: README.md
+url: https://example.org/libmodular
+email: mega.alpha100@gmail.com
+#build-error-email: mega.alpha100@gmail.com
+depends: * build2 >= 0.13.0
+depends: * bpkg >= 0.13.0
+#depends: * liberrors ^0.1.0
+requires: ut^1.1.0
+#depends: libhello ^1.0.0

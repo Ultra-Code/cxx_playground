@@ -1,0 +1,51 @@
+define doxydocs : dir
+
+doxydocs{*}:
+{
+      install.subdirs=true
+      backlink = false
+}
+
+import! doxygen=doxygen%exe{doxygen}
+
+if ($doxygen != [null] )
+{
+  info $doxygen
+
+alias{docs} : doxydocs{html/}: $doxygen file{Doxyfile}
+{{
+  #diag executing doxy ad-hoc
+  # $> refers to the targets
+  # $> refers to an array of input prerequcite and in this case
+  # $doxygen at 0 and $file{Doxyfile} at $<[1]
+	#diag is require for display
+  diag doxygen $> : $<
+  $doxygen $path($<[1])
+  #$doxygen ./file{Doxyfile}
+}}
+#alias{doxygen}:
+#{{
+  ##diag doxygen ./file{Doxyfile}
+  ##diag doxygen Doxyfile
+  #diag  $path($<)
+  #$doxygen $path($<[4])
+#}}
+
+#import! cp=cp%exe{cp}
+
+#if(cp!= [null])
+#{
+  #./:file{cpps}
+#info $cp
+#file{cpps}:file{README.pdc}
+  #{{
+    #diag cp copy
+    #$cp $path($<) cpps
+  #}}
+#}
+}
+
+# Don't install tests.
+#
+tests/: install = false
+./: {*/ -build/ -html/} doc{README.md} manifest

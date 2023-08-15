@@ -1,0 +1,7 @@
+libs =
+import libs =libepoxy-dev%libs{epoxy}
+import libs +=libglfw3-dev%libs{glfw}
+
+exe{opengl}: {hxx ixx txx cxx}{**} $libs testscript
+
+cxx.poptions =+ "-I$out_root" "-I$src_root"

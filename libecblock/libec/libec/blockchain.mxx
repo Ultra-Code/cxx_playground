@@ -1,0 +1,18 @@
+// module;
+//#include <cstdint>
+//#include <vector>
+export module blockchain;
+import<cstdint>;
+import<vector>;
+import libec.block;
+
+export class blockchain
+{
+    const uint32_t dificulty_ {};
+    std::vector<blocks> blockchain_ {};
+    auto get_lastblock() -> blocks const;
+
+  public:
+    constexpr blockchain();
+    auto add_block(blocks new_block) -> void;
+};

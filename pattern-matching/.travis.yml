@@ -1,0 +1,108 @@
+language: cpp
+dist: xenial
+sudo: false
+
+branches:
+  only:
+    - master
+    - dev
+
+git:
+  depth: 1
+
+jobs:
+  include:
+    # ubuntu 16.04, gcc-7
+    - env: VER=7
+      compiler: gcc
+      os: linux
+      addons: { apt: { packages: ["g++-7"], sources: ["ubuntu-toolchain-r-test"] } }
+
+    # ubuntu 16.04, gcc-8
+    - env: VER=8
+      compiler: gcc
+      os: linux
+      addons: { apt: { packages: ["g++-8"], sources: ["ubuntu-toolchain-r-test"] } }
+
+    # ubuntu 16.04, clang-5.0
+    - env: VER=5.0
+      compiler: clang
+      os: linux
+      addons: { apt: { packages: ["clang-5.0"] } }
+
+    # ubuntu 16.04, clang-6.0
+    - env: VER=6.0
+      compiler: clang
+      os: linux
+      addons: { apt: { packages: ["clang-6.0"] } }
+
+    # ubuntu 16.04, clang-7
+    - env: VER=7
+      compiler: clang
+      os: linux
+      addons: { apt: { packages: ["clang-7"], sources: ["llvm-toolchain-xenial-7"] } }
+
+install:
+  # Save the name of the compiler.
+  - COMPILER=${CC}
+  # Install newer cmake.
+  - |
+    if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      brew update
+      brew upgrade cmake
+    fi
+  # Set the correct `CC` and `CXX` environment variables.
+  - |
+    if [ -n "${VER}" ]; then
+      export CC="${CC}-${VER}"
+      export CXX="${CXX}-${VER}"
+    fi
+  - ${CXX} --version
+  # Install specific version of libc++.
+  - |
+    if [ "${TRAVIS_OS_NAME}" = "linux" ] && [ "${COMPILER}" = "clang" ] && [ -n "${VER}" ]; then
+      LLVM_VER=$(echo "$(${CXX} --version)" | grep -Po "clang version \K([0-9]\.[0-9]\.[0-9])")
+
+      LLVM_URL="http://llvm.org/releases/${LLVM_VER}/llvm-${LLVM_VER}.src.tar.xz"
+      LIBCXX_URL="http://llvm.org/releases/${LLVM_VER}/libcxx-${LLVM_VER}.src.tar.xz"
+      LIBCXXABI_URL="http://llvm.org/releases/${LLVM_VER}/libcxxabi-${LLVM_VER}.src.tar.xz"
+
+      mkdir -p llvm-build llvm llvm/projects/libcxx llvm/projects/libcxxabi
+
+      travis_retry wget -O - ${LLVM_URL} | tar --strip-components=1 -xJ -C llvm
+      travis_retry wget -O - ${LIBCXX_URL} | tar --strip-components=1 -xJ -C llvm/projects/libcxx
+      travis_retry wget -O - ${LIBCXXABI_URL} | tar --strip-components=1 -xJ -C llvm/projects/libcxxabi
+
+      pushd llvm-build
+      cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${DEPS} ../llvm
+      cmake --build projects/libcxx --target install -- -j 2
+      cmake --build projects/libcxxabi --target install -- -j 2
+      popd
+
+      export CXXFLAGS="${CXXFLAGS} -nostdinc++ -isystem ${DEPS}/include/c++/v1"
+      export LDFLAGS="${LDFLAGS} -L${DEPS}/lib -lc++ -lc++abi"
+      export LD_LIBRARY_PATH="${DEPS}/lib:${LD_LIBRARY_PATH}"
+    fi
+
+script:
+  - BUILDS=(Debug Release)
+  - EXS=(ON OFF)
+  - mkdir build
+  - pushd build
+  - |
+    for BUILD in "${BUILDS[@]}"; do
+      for EX in "${EXS[@]}"; do
+        (
+          set -x
+          cmake -DCMAKE_BUILD_TYPE="${BUILD}"        \
+                -DMPARK_PATTERNS_EXCEPTIONS="${EX}"  \
+                -DMPARK_PATTERNS_INCLUDE_TESTS=ON ..
+        )
+        cmake --build . -- -j 2
+        ctest -V
+      done
+    done
+  - popd
+
+notifications:
+  email: false
